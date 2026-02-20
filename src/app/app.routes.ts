@@ -1,3 +1,23 @@
 import { Routes } from '@angular/router';
+import { Login } from './login/login';
+import { Estudiantes } from './estudiantes/estudiantes';
+import { Cursos } from './cursos/cursos';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path:'',
+    component:Login
+  },
+  {
+    path:'estudiantes',
+    component:Estudiantes
+  },
+  {
+    path:'cursos',
+    component:Cursos
+  },
+  {
+    path:'**',
+    redirectTo:''
+  }
+];
