@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from "@angular/router";
+import { FormUtilidades } from '../shared/form-utilidades';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,11 @@ import { RouterLink } from "@angular/router";
   styleUrl: './login.css',
 })
 export class Login {
+  formutilidades =FormUtilidades
  private fb = inject(FormBuilder)
 
  form = this.fb.group({
-  usuario:[''],
-  password:['']
+  usuario:['',{validators:[Validators.required,Validators.minLength(4)]}],
+  password:['',{validators:[Validators.required,Validators.minLength(4)]}]
  })
 }

@@ -9,9 +9,15 @@
         <fieldset class="fieldset">
           <label class="label">Usuario</label>
           <input type="text" class="input" [formControl]="form.controls.usuario"  placeholder="Usuario" />
+          @if(formutilidades.isvalidField(form,'usuario')){
+            <span>{{formutilidades.getFieldError(form,"usuario")}}</span>
+          }
           <label class="label">Contraseña</label>
           <input type="password" class="input ng-untouched ng-pristine ng-valid" [formControl]="form.controls.password" placeholder="Contraseña" />
-          <button routerLink="/estudiantes" class="btn btn-neutral mt-4">Ingresar</button>
+           @if(formutilidades.isvalidField(form,'password')){
+            <span>{{formutilidades.getFieldError(form,"password")}}</span>
+          }
+          <button routerLink="/estudiantes" class="btn btn-neutral mt-4" [disabled]="form.invalid">Ingresar</button>
         </fieldset>
       </div>
     </div>
