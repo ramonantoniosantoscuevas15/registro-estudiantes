@@ -1,9 +1,10 @@
 import {  Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-estudiantes',
-  imports: [ReactiveFormsModule, FormsModule,],
+  imports: [ReactiveFormsModule, FormsModule, ],
   templateUrl: './estudiantes.html',
 
 })
@@ -16,7 +17,7 @@ export class Estudiantes {
     nombremadre:[''],
     tutor:[''],
     telefono:[0,[Validators.required,Validators.min(1)]],
-    
+
 
   })
 }

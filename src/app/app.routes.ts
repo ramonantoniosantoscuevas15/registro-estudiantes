@@ -10,7 +10,7 @@ export const routes: Routes = [
   },
   {
     path:'estudiantes',
-    component:Estudiantes
+    loadChildren:() => import('././estudiantes/estudiantes.routes')
   },
   {
     path:'cursos',
