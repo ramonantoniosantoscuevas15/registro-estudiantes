@@ -8,14 +8,14 @@
       <div class="card-body">
         <fieldset class="fieldset">
           <label class="label">Usuario</label>
-          <input type="text" class="input" [formControl]="form.controls.usuario"  placeholder="Usuario" />
-          @if(formutilidades.isvalidField(form,'usuario')){
-            <span>{{formutilidades.getFieldError(form,"usuario")}}</span>
+          <input type="text" class="input" [formControl]="form.controls.correo"  placeholder="Correo" />
+          @if(formutilidades.isvalidField(form,'correo')){
+            <mat-error>{{formutilidades.getFieldError(form,"correo")}}</mat-error>
           }
           <label class="label">Contraseña</label>
           <input type="password" class="input ng-untouched ng-pristine ng-valid" [formControl]="form.controls.password" placeholder="Contraseña" />
            @if(formutilidades.isvalidField(form,'password')){
-            <span>{{formutilidades.getFieldError(form,"password")}}</span>
+            <mat-error> {{formutilidades.getFieldError(form,"password")}}</mat-error>
           }
           <button routerLink="/estudiantes" class="btn btn-neutral mt-4" [disabled]="form.invalid">Ingresar</button>
         </fieldset>

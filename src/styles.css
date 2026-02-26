@@ -3,6 +3,9 @@
 @plugin "daisyui";
 @plugin "daisyui/theme" {   name: "halloween";   default: true; };
 
-span{
+mat-error{
   color:red;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
