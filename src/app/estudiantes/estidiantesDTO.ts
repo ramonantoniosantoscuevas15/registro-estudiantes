@@ -10,7 +10,7 @@ export interface estidiantesDTO {
   telefono: number,
   dirrecion: string,
   actanacimiento?: string,
-  cursos: cursosDTO[]
+  // cursos: cursosDTO[]
 }
 
 export interface CrearestudianteDTO {
@@ -21,7 +21,8 @@ export interface CrearestudianteDTO {
   tutor: string,
   telefono: number,
   dirrecion: string,
+  foto?:File,
   actanacimiento?: File,
-  cursosId:number[]
+  // cursosId:number[]
 
 }

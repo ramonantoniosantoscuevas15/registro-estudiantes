@@ -20,5 +20,6 @@ export class Cursos {
   })
   guadarCurso(){
     const curso = this.form.value as CrearcursoDTO
+    this.postcurso.emit(curso)
   }
 }

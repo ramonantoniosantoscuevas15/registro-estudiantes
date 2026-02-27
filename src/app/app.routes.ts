@@ -3,6 +3,7 @@ import { Login } from './login/login';
 import { Estudiantes } from './estudiantes/estudiantes';
 import { Cursos } from './cursos/cursos';
 import { Menu } from './shared/menu/menu';
+import { Formulariocursos } from './cursos/formulariocursos/formulariocursos';
 
 export const routes: Routes = [
   {
@@ -15,7 +16,7 @@ export const routes: Routes = [
   },
   {
     path:'estudiantes/cursos',
-    component:Cursos
+    component:Formulariocursos
   },
   {
     path:'menu',
