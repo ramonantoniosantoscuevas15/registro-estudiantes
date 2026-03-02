@@ -9,6 +9,7 @@ export interface estidiantesDTO {
   tutor: string,
   telefono: number,
   dirrecion: string,
+  foto?:string,
   actanacimiento?: string,
   // cursos: cursosDTO[]
 }
