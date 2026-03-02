@@ -1,12 +1,12 @@
 import { cursosDTO } from "../cursos/cursosDTO";
 
-export interface estidiantesDTO {
+export interface estidianteDTO {
   id: number,
   nombre: string,
   apellido: string,
-  nombrepadre: string,
-  nombremadre: string,
-  tutor: string,
+  nombrepadre?: string,
+  nombremadre?: string,
+  tutor?: string,
   telefono: number,
   dirrecion: string,
   foto?:string,

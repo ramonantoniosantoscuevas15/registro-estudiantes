@@ -7,7 +7,7 @@ import { Menu } from "../shared/menu/menu";
 import { MatSelectModule } from '@angular/material/select';
 import { InputImg } from "../shared/input-img/input-img";
 import { InputImg2 } from "../shared/input-img2/input-img2";
-import { CrearestudianteDTO, estidiantesDTO } from './estidiantesDTO';
+import { CrearestudianteDTO, estidianteDTO,  } from './estidiantesDTO';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class Estudiantes implements OnInit {
   }
   private fb = inject(FormBuilder)
   formutilidades =FormUtilidades
-  @Input() modelo?:estidiantesDTO
+  @Input() modelo?:estidianteDTO
   @Output() postestudiante = new EventEmitter<CrearestudianteDTO>()
   form = this.fb.group({
     nombre:['',{validators:[Validators.required,Validators.minLength(4)]}],
@@ -49,6 +49,12 @@ export class Estudiantes implements OnInit {
 
   guardarestudiante(){
     const estudiante = this.form.value as CrearestudianteDTO
+    if(typeof estudiante.foto === "string"){
+      estudiante.foto = undefined
+    }
+    if(typeof estudiante.actanacimiento === "string"){
+      estudiante.actanacimiento = undefined
+    }
     this.postestudiante.emit(estudiante)
   }
 
