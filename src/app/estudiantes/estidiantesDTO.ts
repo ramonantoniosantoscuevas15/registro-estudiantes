@@ -11,7 +11,7 @@ export interface estidianteDTO {
   dirrecion: string,
   foto?:string,
   actanacimiento?: string,
-  // cursos: cursosDTO[]
+  
 }
 
 export interface CrearestudianteDTO {
@@ -24,6 +24,6 @@ export interface CrearestudianteDTO {
   dirrecion: string,
   foto?:File,
   actanacimiento?: File,
-  // cursosId:number[]
+
 
 }

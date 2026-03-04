@@ -8,6 +8,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { InputImg } from "../shared/input-img/input-img";
 import { InputImg2 } from "../shared/input-img2/input-img2";
 import { CrearestudianteDTO, estidianteDTO,  } from './estidiantesDTO';
+import { SelectorDTO } from '../shared/selector/selectormodelo';
+
 
 
 @Component({
@@ -27,6 +29,8 @@ export class Estudiantes implements OnInit {
   formutilidades =FormUtilidades
   @Input() modelo?:estidianteDTO
   @Output() postestudiante = new EventEmitter<CrearestudianteDTO>()
+  @Input() cursonoseleccionado!: SelectorDTO[]
+  @Input() cursoseleccionado!:SelectorDTO[]
   form = this.fb.group({
     nombre:['',{validators:[Validators.required,Validators.minLength(4)]}],
     apellido:['',{validators:[Validators.required,Validators.minLength(4)]}],
@@ -55,6 +59,8 @@ export class Estudiantes implements OnInit {
     if(typeof estudiante.actanacimiento === "string"){
       estudiante.actanacimiento = undefined
     }
+    const cursoId = this.cursoseleccionado.map(val=>val.id)
+
     this.postestudiante.emit(estudiante)
   }
 

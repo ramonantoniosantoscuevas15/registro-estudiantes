@@ -15,11 +15,18 @@
 
 
   </div>
+  <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+    <h4>Seleccione los Estudiantes</h4>
+
+
+  </div>
+  <app-selector [selecionados]="estudiantesSelecionados" [noselecionados]="estudiantesNoSelecionados"></app-selector>
+
   <div class="mt-6 flex items-center justify-center gap-x-6">
-    <button  class="btn rounded-md bg-indigo-500 px-3 py-2" [disabled]="form.invalid">Ingresar</button>
+    <button  class="btn rounded-md bg-indigo-500 px-3 py-2" [disabled]="form.invalid">Ingresar Curso</button>
     <!-- <button type="submit"
       class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" [disabled]="form.invalid">Agregar Estudiante</button> -->
-    <button type="button" class="text-sm/6 font-semibold text-white">Cancelar</button>
+    <button type="reset" class="btn font-semibold text-white">Cancelar</button>
 
   </div>
 

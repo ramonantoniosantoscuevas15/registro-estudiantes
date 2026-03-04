@@ -3,5 +3,6 @@ export interface cursosDTO{
   curso:string
 }
 export interface CrearcursoDTO{
-  curso:string
+  curso:string,
+  estudianteId?:number[]
 }

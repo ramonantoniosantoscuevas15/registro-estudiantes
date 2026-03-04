@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Estudiantes } from "../estudiantes";
 import { CrearestudianteDTO } from '../estidiantesDTO';
+import { SelectorDTO } from '../../shared/selector/selectormodelo';
 
 @Component({
   selector: 'app-formularioestudiante',
@@ -8,6 +9,7 @@ import { CrearestudianteDTO } from '../estidiantesDTO';
   templateUrl: './formularioestudiante.html',
 })
 export class Formularioestudiante {
+  
    guardarestudiante(estudiante: CrearestudianteDTO){
     console.log(estudiante)
 
