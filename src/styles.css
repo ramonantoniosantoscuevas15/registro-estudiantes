@@ -13,6 +13,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 button{
   margin-bottom:1rem;
 }
+.cursos-contenedor{
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+p{
+  max-width: 225px;
+  font-size:15px;
+  font-weight:bold;
+}
 
 .contenedor{
   display: flex;

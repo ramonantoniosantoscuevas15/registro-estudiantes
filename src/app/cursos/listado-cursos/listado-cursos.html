@@ -1,0 +1,14 @@
+
+<app-listado [listado]="cursos">
+  <ng-container contenido>
+    <div class="cursos-contenedor">
+      @for (curso of cursos; track $index) {
+        <div class="curso-contenedor">
+          <p>Curso:{{curso.curso}}</p>
+
+        </div>
+      }
+
+    </div>
+  </ng-container>
+</app-listado>
