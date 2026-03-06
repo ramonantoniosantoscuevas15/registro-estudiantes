@@ -5,10 +5,11 @@ import { FiltroCurso } from './filtro-curso';
 import { Location } from '@angular/common';
 import { Menu } from "../../shared/menu/menu";
 import { Listado } from "../../shared/listado/listado";
+import { ListadoCursos } from "../listado-cursos/listado-cursos";
 
 @Component({
   selector: 'app-filtro-cursos',
-  imports: [ReactiveFormsModule, Menu, Listado],
+  imports: [ReactiveFormsModule, Menu,  ListadoCursos],
   templateUrl: './filtro-cursos.html',
 })
 export class FiltroCursos implements OnInit {
@@ -16,7 +17,7 @@ export class FiltroCursos implements OnInit {
     this.leerValoresUrl()
     this.buscarCurso(this.form.value as FiltroCurso)
     this.form.valueChanges.subscribe(valores =>{
-      this.curso= this.cursooriginal
+      this.cursos= this.cursooriginal
       this.buscarCurso(valores as FiltroCurso)
       this.escribirParametrosBusquedaEnUrl(valores as FiltroCurso)
     })
@@ -33,7 +34,7 @@ export class FiltroCursos implements OnInit {
     if(valores.estudianteid!==0){
       queryString.push(`estudianteid=${valores.estudianteid}`)
     }
-    this.location.replaceState('estudiantes/filtro',queryString.join('&'))
+    this.location.replaceState('estudiantes/estudiantes/filtro',queryString.join('&'))
 
   }
 
@@ -43,10 +44,10 @@ export class FiltroCursos implements OnInit {
 
   buscarCurso(valores:FiltroCurso){
     if(valores.curso){
-      this.curso= this.curso.filter(curso=>curso.nombre.indexOf(valores.curso)!==-1)
+      this.cursos= this.cursos.filter(curso=>curso.nombre.indexOf(valores.curso)!==-1)
     }
     if(valores.estudianteid!==0){
-      this.curso= this.curso.filter(curso=> curso.estudiantes.indexOf(valores.estudianteid)!==-1)
+      this.cursos= this.cursos.filter(curso=> curso.estudiantes.indexOf(valores.estudianteid)!==-1)
 
     }
   }
@@ -80,5 +81,5 @@ export class FiltroCursos implements OnInit {
     {nombre:"segundo",estudiantes:[1,2]},
     {nombre:"tercero",estudiantes:[1,2,3]}
   ]
-  curso=this.cursooriginal
+  cursos=this.cursooriginal
 }

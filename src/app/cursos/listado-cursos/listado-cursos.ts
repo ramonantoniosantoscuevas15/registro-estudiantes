@@ -7,5 +7,10 @@ import { Listado } from "../../shared/listado/listado";
   templateUrl: './listado-cursos.html',
 })
 export class ListadoCursos {
-  @Input({required:true}) cursos!:any[]
+   @Input({required:true}) cursos!:any[]
+
+
+
+
+  
 }

@@ -6,6 +6,7 @@ import { Menu } from './shared/menu/menu';
 import { Formulariocursos } from './cursos/formulariocursos/formulariocursos';
 import { EditarEstudiante } from './estudiantes/editar-estudiante/editar-estudiante';
 import { FiltroCursos } from './cursos/filtro-cursos/filtro-cursos';
+import { ListadoCursos } from './cursos/listado-cursos/listado-cursos';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path:'estudiantes/cursos',
     component:Formulariocursos
+  },
+  {
+    path:'listadocursos',
+    component:ListadoCursos
   },
   {
     path:'menu',
