@@ -1,0 +1,23 @@
+<app-listado [listado]="estudiantes">
+
+    <ng-container contenido>
+      <div class="estudiantes-contenedor">
+    @for (estudiante of estudiantes; track $index) {
+      <div class="estudiante-contenedor">
+        <p>Nombre:{{estudiante.nombre}}</p>
+        <p>Apellido:{{estudiante.apellido}}</p>
+        <div>
+          <a mat-flat-button type="button" class="secundary" routerLink="/estidiante/editar/55"></a>
+          <button mat-flat-button type="button" class="warn">Borrar</button>
+        </div>
+
+      </div>
+
+    }
+
+</div>
+  </ng-container>
+
+
+
+</app-listado>

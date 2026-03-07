@@ -10,7 +10,7 @@ import { Selector } from "../shared/selector/selector";
 
 @Component({
   selector: 'app-cursos',
-  imports: [Menu, ReactiveFormsModule, MatInputModule, MatFormFieldModule, Selector],
+  imports: [ ReactiveFormsModule, MatInputModule, MatFormFieldModule, Selector],
   templateUrl: './cursos.html',
 })
 export class Cursos {

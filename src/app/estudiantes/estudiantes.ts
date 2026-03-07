@@ -14,7 +14,7 @@ import { SelectorDTO } from '../shared/selector/selectormodelo';
 
 @Component({
   selector: 'app-estudiantes',
-  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule, Menu, MatSelectModule, InputImg, InputImg2],
+  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule,  MatSelectModule, InputImg, InputImg2],
   templateUrl: './estudiantes.html',
 
 })

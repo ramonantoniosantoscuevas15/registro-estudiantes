@@ -7,26 +7,32 @@ import { Formulariocursos } from './cursos/formulariocursos/formulariocursos';
 import { EditarEstudiante } from './estudiantes/editar-estudiante/editar-estudiante';
 import { FiltroCursos } from './cursos/filtro-cursos/filtro-cursos';
 import { ListadoCursos } from './cursos/listado-cursos/listado-cursos';
+import { FiltroEstudiantes } from './estudiantes/filtro-estudiantes/filtro-estudiantes';
+import { ListadoEstudiantes } from './estudiantes/listado-estudiantes/listado-estudiantes';
 
 export const routes: Routes = [
+  // {
+  //   path:'',
+  //   component:Login,
+  // },
   {
     path:'',
-    component:Login,
-  },
-  {
-    path:'estudiantes',
-    loadChildren:() => import('././estudiantes/estudiantes.routes')
+    component:Estudiantes
   },
   {
     path:'estidiante/editar/:id',
     component:EditarEstudiante
   },
   {
-    path:'estudiantes/estudiantes/estudiantes/filtro',
-    component:FiltroCursos
+    path:'estudiantes/filtro',
+    component:FiltroEstudiantes
   },
   {
-    path:'estudiantes/cursos',
+    path:'listadoestudiantes',
+    component:ListadoEstudiantes
+  },
+  {
+    path:'cursos',
     component:Formulariocursos
   },
   {

@@ -18,10 +18,27 @@ button{
   margin-bottom: 1rem;
   padding: 1rem;
 }
+.estudiantes-contenedor{
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  padding: 1rem;
+
+}
+.estudiante-contenedor{
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
 p{
   max-width: 225px;
   font-size:15px;
   font-weight:bold;
+}
+button{
+  margin-left:1rem;
+}
+.boton{
+  margin-bottom:1rem;
 }
 
 .contenedor{
