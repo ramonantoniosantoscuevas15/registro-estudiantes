@@ -59,7 +59,7 @@ export class Estudiantes implements OnInit {
     if(typeof estudiante.actanacimiento === "string"){
       estudiante.actanacimiento = undefined
     }
-    const cursoId = this.cursoseleccionado.map(val=>val.id)
+    
 
     this.postestudiante.emit(estudiante)
   }
