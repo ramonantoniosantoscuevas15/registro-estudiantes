@@ -9,15 +9,16 @@ import { FiltroCursos } from './cursos/filtro-cursos/filtro-cursos';
 import { ListadoCursos } from './cursos/listado-cursos/listado-cursos';
 import { FiltroEstudiantes } from './estudiantes/filtro-estudiantes/filtro-estudiantes';
 import { ListadoEstudiantes } from './estudiantes/listado-estudiantes/listado-estudiantes';
+import { Formularioestudiante } from './estudiantes/formularioestudiante/formularioestudiante';
 
 export const routes: Routes = [
-  // {
-  //   path:'',
+  //  {
+  // path:'',
   //   component:Login,
-  // },
+  //  },
   {
     path:'',
-    component:Estudiantes
+    component:Formularioestudiante
   },
   {
     path:'estidiante/editar/:id',

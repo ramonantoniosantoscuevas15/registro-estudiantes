@@ -13,11 +13,11 @@ export class Formularioestudiante {
   estudianteServices = inject(EstudiantesServices)
 
    guardarestudiante(estudiante: CrearestudianteDTO){
-    console.log(estudiante)
 
-    // this.estudianteServices.crear(estudiante).subscribe(()=>{
-    //   console.log(estudiante)
-    // })
+
+     this.estudianteServices.crear(estudiante).subscribe(()=>{
+       console.log(estudiante)
+     })
 
 
    }

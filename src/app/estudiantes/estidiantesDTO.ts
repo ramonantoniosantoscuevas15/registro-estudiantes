@@ -11,7 +11,7 @@ export interface estidianteDTO {
   dirrecion: string,
   foto?:string,
   actanacimiento?: string,
-  
+
 }
 
 export interface CrearestudianteDTO {
@@ -21,7 +21,7 @@ export interface CrearestudianteDTO {
   nombremadre: string,
   tutor: string,
   telefono: number,
-  dirrecion: string,
+  direccion: string,
   foto?:File,
   actanacimiento?: File,
 

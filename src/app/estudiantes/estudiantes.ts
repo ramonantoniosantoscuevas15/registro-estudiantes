@@ -38,7 +38,7 @@ export class Estudiantes implements OnInit {
     nombremadre:[''],
     tutor:[''],
     telefono:[0,[Validators.required,Validators.min(3)]],
-    dirrecion:['',{validators:[Validators.required,Validators.minLength(4)]}],
+    direccion:['',{validators:[Validators.required,Validators.minLength(4)]}],
     foto:new FormControl<File  |string | null>(null),
     actanacimiento:new FormControl<File  |string | null>(null)
 
@@ -59,7 +59,7 @@ export class Estudiantes implements OnInit {
     if(typeof estudiante.actanacimiento === "string"){
       estudiante.actanacimiento = undefined
     }
-    
+
 
     this.postestudiante.emit(estudiante)
   }

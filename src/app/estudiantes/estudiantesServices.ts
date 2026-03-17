@@ -12,7 +12,7 @@ export class EstudiantesServices {
   constructor() { }
 
   private http = inject(HttpClient)
-  private urlbase = environment.apiUrl+'/estudiantes'
+  private urlbase = environment.apiUrl + '/estudiantes'
 
   public crear(estudiante:CrearestudianteDTO):Observable<estidianteDTO>{
     const formData = this.contruirFormdata(estudiante)
@@ -28,7 +28,7 @@ export class EstudiantesServices {
     formData.append('nombremadre',estudiante.nombremadre)
     formData.append('tutor',estudiante.tutor)
     formData.append('telefono',JSON.stringify(estudiante.telefono))
-    formData.append('dirrecion',estudiante.dirrecion)
+    formData.append('direccion',estudiante.direccion)
     if(estudiante.foto){
       formData.append('foto',estudiante.foto)
     }
