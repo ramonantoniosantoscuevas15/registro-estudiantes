@@ -9,12 +9,13 @@ import { InputImg } from "../shared/input-img/input-img";
 import { InputImg2 } from "../shared/input-img2/input-img2";
 import { CrearestudianteDTO, estidianteDTO,  } from './estidiantesDTO';
 import { SelectorDTO } from '../shared/selector/selectormodelo';
+import { Selector } from "../shared/selector/selector";
 
 
 
 @Component({
   selector: 'app-estudiantes',
-  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule,  MatSelectModule, InputImg, InputImg2],
+  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatSelectModule, InputImg, InputImg2, Selector],
   templateUrl: './estudiantes.html',
 
 })
@@ -29,8 +30,8 @@ export class Estudiantes implements OnInit {
   formutilidades =FormUtilidades
   @Input() modelo?:estidianteDTO
   @Output() postestudiante = new EventEmitter<CrearestudianteDTO>()
-  @Input() cursonoseleccionado!: SelectorDTO[]
-  @Input() cursoseleccionado!:SelectorDTO[]
+ @Input({ required: true })cursonoseleccionado!: SelectorDTO[]
+  @Input({ required: true }) cursoseleccionado!:SelectorDTO[]
   form = this.fb.group({
     nombre:['',{validators:[Validators.required,Validators.minLength(4)]}],
     apellido:['',{validators:[Validators.required,Validators.minLength(4)]}],

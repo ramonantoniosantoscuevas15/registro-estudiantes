@@ -4,7 +4,7 @@ import { Estudiantes } from './estudiantes/estudiantes';
 import { Cursos } from './cursos/cursos';
 import { Menu } from './shared/menu/menu';
 import { Formulariocursos } from './cursos/formulariocursos/formulariocursos';
-import { EditarEstudiante } from './estudiantes/editar-estudiante/editar-estudiante';
+
 import { FiltroCursos } from './cursos/filtro-cursos/filtro-cursos';
 import { ListadoCursos } from './cursos/listado-cursos/listado-cursos';
 import { FiltroEstudiantes } from './estudiantes/filtro-estudiantes/filtro-estudiantes';
@@ -20,10 +20,7 @@ export const routes: Routes = [
     path:'',
     component:Formularioestudiante
   },
-  {
-    path:'estidiante/editar/:id',
-    component:EditarEstudiante
-  },
+ 
   {
     path:'estudiantes/filtro',
     component:FiltroEstudiantes

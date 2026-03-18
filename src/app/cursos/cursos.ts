@@ -10,22 +10,20 @@ import { Selector } from "../shared/selector/selector";
 
 @Component({
   selector: 'app-cursos',
-  imports: [ ReactiveFormsModule, MatInputModule, MatFormFieldModule, Selector],
+  imports: [ ReactiveFormsModule, MatInputModule, MatFormFieldModule],
   templateUrl: './cursos.html',
 })
 export class Cursos {
-  @Input({required:true}) estudiantesSelecionados!:SelectorDTO[]
-  @Input({required:true}) estudiantesNoSelecionados!:SelectorDTO[]
+
    private fb = inject(FormBuilder)
   formutilidades =FormUtilidades
   @Output() postcurso = new EventEmitter<CrearcursoDTO>()
   form = this.fb.group({
-    curso:['',{validators:[Validators.required,Validators.minLength(4)]}]
+    cursonombre:['',{validators:[Validators.required,Validators.minLength(4)]}]
   })
   guadarCurso(){
     const curso = this.form.value as CrearcursoDTO
-    const estudiantesId = this.estudiantesSelecionados.map(val=> val.id)
-    curso.estudianteId = estudiantesId
+
     this.postcurso.emit(curso)
   }
 }

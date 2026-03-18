@@ -1,4 +1,4 @@
-import { cursosDTO } from "../cursos/cursosDTO";
+import { cursosDTO } from '../cursos/cursosDTO';
 
 export interface estidianteDTO {
   id: number,
@@ -11,6 +11,7 @@ export interface estidianteDTO {
   dirrecion: string,
   foto?:string,
   actanacimiento?: string,
+  curso:cursosDTO[]
 
 }
 
@@ -24,6 +25,7 @@ export interface CrearestudianteDTO {
   direccion: string,
   foto?:File,
   actanacimiento?: File,
+  cursoId?:number[]
 
 
 }

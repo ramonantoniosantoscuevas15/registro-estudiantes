@@ -9,11 +9,7 @@ import { SelectorDTO } from '../../shared/selector/selectormodelo';
   templateUrl: './formulariocursos.html',
 })
 export class Formulariocursos {
-  estudiantesSelecionados: SelectorDTO[]=[]
-  estudiantesNoSelecionados:SelectorDTO[]=[
-    {id:1,nombre:'Ronny',apellido:'Sanchez'},
-    {id:2,nombre:'Luis',apellido:'pimenter'}
-  ]
+  
   guadarCurso( curso: CrearcursoDTO){
     console.log(curso)
 
