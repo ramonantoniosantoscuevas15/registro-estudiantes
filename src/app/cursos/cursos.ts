@@ -19,7 +19,7 @@ export class Cursos {
   formutilidades =FormUtilidades
   @Output() postcurso = new EventEmitter<CrearcursoDTO>()
   form = this.fb.group({
-    cursonombre:['',{validators:[Validators.required,Validators.minLength(4)]}]
+    nombrecurso:['',{validators:[Validators.required,Validators.minLength(4)]}]
   })
   guadarCurso(){
     const curso = this.form.value as CrearcursoDTO

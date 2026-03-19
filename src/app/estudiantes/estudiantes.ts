@@ -61,6 +61,9 @@ export class Estudiantes implements OnInit {
       estudiante.actanacimiento = undefined
     }
 
+    const cursoid = this.cursoseleccionado.map(val=> val.id)
+    estudiante.cursoId = cursoid
+
 
     this.postestudiante.emit(estudiante)
   }

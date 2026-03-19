@@ -12,8 +12,8 @@ import { EstudiantesServices } from '../estudiantesServices';
 export class Formularioestudiante {
   estudianteServices = inject(EstudiantesServices)
   cursonoseleccionado:SelectorDTO[]=[
-    {id:1,cursonombre:'primero'},
-    {id:2,cursonombre:'segundo'}
+    {id:1,nombrecurso:'primero'},
+    {id:2,nombrecurso:'segundo'}
   ]
   cursoseleccionado:SelectorDTO[]=[]
 
@@ -21,7 +21,7 @@ export class Formularioestudiante {
 
 
     //  this.estudianteServices.crear(estudiante).subscribe(()=>{
-    //    console.log(estudiante)
+       console.log(estudiante)
     //  })
 
 

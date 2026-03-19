@@ -1,9 +1,9 @@
 export interface cursosDTO{
   id:number,
-  cursonombre:string,
-  
+  nombreCurso:string,
+
 }
 export interface CrearcursoDTO{
-  cursonombre:string,
+  nombreCurso:string,
 
 }

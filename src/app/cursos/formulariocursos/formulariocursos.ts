@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Cursos } from "../cursos";
 import { CrearcursoDTO } from '../cursosDTO';
 import { SelectorDTO } from '../../shared/selector/selectormodelo';
+import { CursoServices } from '../cursoServices';
 
 @Component({
   selector: 'app-formulariocursos',
@@ -9,9 +10,16 @@ import { SelectorDTO } from '../../shared/selector/selectormodelo';
   templateUrl: './formulariocursos.html',
 })
 export class Formulariocursos {
-  
+  cursoServices = inject(CursoServices)
+
   guadarCurso( curso: CrearcursoDTO){
-    console.log(curso)
+    this.cursoServices.crear(curso).subscribe(()=>{
+      console.log(curso)
+    })
+
+
+
+
 
   }
 }
