@@ -20,6 +20,11 @@ export class CursoServices {
     return this.http.get<cursosDTO[]>(this.urlbase,{params:queyparams,observe:'response'})
 
   }
+  public obtenerporid(id:number):Observable<cursosDTO>{
+    return this.http.get<cursosDTO>(`${this.urlbase}/${id}`)
+
+
+  }
 
   public crear(curso:CrearcursoDTO){
     return this.http.post(this.urlbase,curso)

@@ -9,7 +9,7 @@ import { ListadoCursos } from "../listado-cursos/listado-cursos";
 
 @Component({
   selector: 'app-filtro-cursos',
-  imports: [ReactiveFormsModule, Menu,  ListadoCursos],
+  imports: [ReactiveFormsModule, Menu,  ],
   templateUrl: './filtro-cursos.html',
 })
 export class FiltroCursos implements OnInit {
