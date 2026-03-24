@@ -2,8 +2,8 @@
    <div #cargando>
     <ng-content select="[cargando]"></ng-content>
     </div>
-    @if(!cargando.innerHTML.trim){
-      <span class="loading loading-infinity loading-xl"></span>
+    @if(!cargando.innerHTML.trim()){
+      <img src="loading.gif"/>
     }
 }
 @else if (listado.length ===0) {

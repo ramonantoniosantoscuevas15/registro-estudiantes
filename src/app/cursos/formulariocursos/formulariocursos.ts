@@ -13,8 +13,13 @@ export class Formulariocursos {
   cursoServices = inject(CursoServices)
 
   guadarCurso( curso: CrearcursoDTO){
-    this.cursoServices.crear(curso).subscribe(()=>{
-      console.log(curso)
+    this.cursoServices.crear(curso).subscribe({
+      next:()=>{
+        console.log(curso)
+
+      },
+      
+
     })
 
 
