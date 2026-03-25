@@ -8,10 +8,11 @@ import { cursosDTO } from '../cursosDTO';
 import { paginaciondto } from '../../../models/paginaciondto';
 import { HttpResponse } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'app-listado-cursos',
-  imports: [Listado, MatButtonModule, MatTableModule, MatPaginatorModule,RouterLink],
+  imports: [Listado, MatButtonModule, MatTableModule, MatPaginatorModule,RouterLink,SweetAlert2Module],
   templateUrl: './listado-cursos.html',
 })
 export class ListadoCursos {
@@ -37,6 +38,13 @@ export class ListadoCursos {
   actualizarPaginacion(datos:PageEvent){
     this.paginacion = {pagina: datos.pageIndex+1,recordsPorPagina: datos.pageSize}
     this.Cargaregistros()
+  }
+
+  borrar(id:number){
+    this.cursoServices.borrar(id).subscribe(()=>{
+      this.paginacion = {pagina:1,recordsPorPagina:5}
+      this.Cargaregistros()
+    })
   }
 
 

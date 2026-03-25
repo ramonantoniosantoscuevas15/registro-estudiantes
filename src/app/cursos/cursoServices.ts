@@ -15,20 +15,31 @@ export class CursoServices {
   private http = inject(HttpClient)
   private urlbase = environment.apiUrl + '/cursos'
 
-  public obtenertodos(paginacion:paginaciondto):Observable<HttpResponse<cursosDTO[]>>{
-    let queyparams= construirQueryParams(paginacion)
-    return this.http.get<cursosDTO[]>(this.urlbase,{params:queyparams,observe:'response'})
+  public obtenertodos(paginacion: paginaciondto): Observable<HttpResponse<cursosDTO[]>> {
+    let queyparams = construirQueryParams(paginacion)
+    return this.http.get<cursosDTO[]>(this.urlbase, { params: queyparams, observe: 'response' })
 
   }
-  public obtenerporid(id:number):Observable<cursosDTO>{
+  public obtenerporid(id: number): Observable<cursosDTO> {
     return this.http.get<cursosDTO>(`${this.urlbase}/${id}`)
 
 
   }
 
-  public crear(curso:CrearcursoDTO){
-    return this.http.post(this.urlbase,curso)
+  public actualizar(id: number, curso: CrearcursoDTO) {
+    return this.http.put(`${this.urlbase}/${id}`, curso)
+  }
 
+  public crear(curso: CrearcursoDTO) {
+    return this.http.post(this.urlbase, curso)
+
+  }
+
+  public obtenercursos() {
+    return this.http.get<cursosDTO[]>(`${this.urlbase}/todos`)
+  }
+  public borrar(id: number) {
+    return this.http.delete(`${this.urlbase}/${id}`)
   }
 
 }

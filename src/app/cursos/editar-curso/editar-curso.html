@@ -1,0 +1,6 @@
+@if(cursos){
+  <app-cursos [modelo]="cursos" (postcurso)="guadarCurso($event)" ></app-cursos>
+
+}@else {
+  <app-cargando></app-cargando>
+}

@@ -10,6 +10,7 @@ import { ListadoCursos } from './cursos/listado-cursos/listado-cursos';
 import { FiltroEstudiantes } from './estudiantes/filtro-estudiantes/filtro-estudiantes';
 import { ListadoEstudiantes } from './estudiantes/listado-estudiantes/listado-estudiantes';
 import { Formularioestudiante } from './estudiantes/formularioestudiante/formularioestudiante';
+import { EditarCurso } from './cursos/editar-curso/editar-curso';
 
 export const routes: Routes = [
   //  {
@@ -20,7 +21,7 @@ export const routes: Routes = [
     path:'',
     component:Formularioestudiante
   },
- 
+
   {
     path:'estudiantes/filtro',
     component:FiltroEstudiantes
@@ -36,6 +37,10 @@ export const routes: Routes = [
   {
     path:'listadocursos',
     component:ListadoCursos
+  },
+  {
+    path:'curso/editar/:id',
+    component:EditarCurso
   },
   {
     path:'menu',
