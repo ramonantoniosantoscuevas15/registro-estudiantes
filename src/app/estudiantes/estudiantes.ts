@@ -7,7 +7,7 @@ import { Menu } from "../shared/menu/menu";
 import { MatSelectModule } from '@angular/material/select';
 import { InputImg } from "../shared/input-img/input-img";
 import { InputImg2 } from "../shared/input-img2/input-img2";
-import { CrearestudianteDTO, estidianteDTO,  } from './estidiantesDTO';
+import { CrearestudianteDTO, estudianteDTO,  } from './estidiantesDTO';
 import { SelectorDTO } from '../shared/selector/selectormodelo';
 import { Selector } from "../shared/selector/selector";
 
@@ -28,7 +28,7 @@ export class Estudiantes implements OnInit {
   }
   private fb = inject(FormBuilder)
   formutilidades =FormUtilidades
-  @Input() modelo?:estidianteDTO
+  @Input() modelo?:estudianteDTO
   @Output() postestudiante = new EventEmitter<CrearestudianteDTO>()
  @Input({ required: true })cursonoseleccionado!: SelectorDTO[]
   @Input({ required: true }) cursoseleccionado!:SelectorDTO[]

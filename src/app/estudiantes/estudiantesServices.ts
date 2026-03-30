@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environments.developer';
-import { CrearestudianteDTO, estidianteDTO } from './estidiantesDTO';
+import { CrearestudianteDTO, CursoEstudiantedto, estudianteDTO } from './estidiantesDTO';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,9 +14,9 @@ export class EstudiantesServices {
   private http = inject(HttpClient)
   private urlbase = environment.apiUrl + '/estudiantes'
 
-  public crear(estudiante:CrearestudianteDTO):Observable<estidianteDTO>{
+  public crear(estudiante:CrearestudianteDTO):Observable<estudianteDTO>{
     const formData = this.contruirFormdata(estudiante)
-    return this.http.post<estidianteDTO>(this.urlbase,formData)
+    return this.http.post<estudianteDTO>(this.urlbase,formData)
 
   }
 
@@ -35,10 +35,14 @@ export class EstudiantesServices {
     if(estudiante.actanacimiento){
       formData.append('actanacimiento',estudiante.actanacimiento)
     }
+    formData.append('cursoId',JSON.stringify(estudiante.cursoId))
 
     return formData
 
 
+  }
+  public crearget():Observable<CursoEstudiantedto>{
+    return this.http.get<CursoEstudiantedto>(`${this.urlbase}/PostCurso`)
   }
 
 }

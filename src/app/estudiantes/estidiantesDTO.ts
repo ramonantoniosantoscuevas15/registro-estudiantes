@@ -1,6 +1,6 @@
 import { cursosDTO } from '../cursos/cursosDTO';
 
-export interface estidianteDTO {
+export interface estudianteDTO {
   id: number,
   nombre: string,
   apellido: string,
@@ -28,4 +28,14 @@ export interface CrearestudianteDTO {
   cursoId?:number[]
 
 
+}
+
+export interface CursoEstudiantedto{
+  cursos:cursosDTO[]
+}
+
+export interface EstudiantePutgetdto{
+  estudiante: estudianteDTO[],
+  cursoSeleccionado: cursosDTO[]
+  cursoNoSeleccionado: cursosDTO[]
 }

@@ -1,1 +1,8 @@
-<app-estudiantes (postestudiante)="guardarestudiante($event)"[cursoseleccionado]="cursoseleccionado"[cursonoseleccionado]="cursonoseleccionado" ></app-estudiantes>
+@if(cursonoseleccionado){
+  <app-estudiantes (postestudiante)="guardarestudiante($event)"[cursoseleccionado]="cursoseleccionado"[cursonoseleccionado]="cursonoseleccionado" ></app-estudiantes>
+
+}
+@else{
+  <app-cargando></app-cargando>
+}
+
