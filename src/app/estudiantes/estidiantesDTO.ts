@@ -4,13 +4,13 @@ export interface estudianteDTO {
   id: number,
   nombre: string,
   apellido: string,
-  nombrepadre?: string,
+  nombrepadre: string,
   nombremadre?: string,
-  tutor?: string,
+  nombretutor?: string,
   telefono: number,
   dirrecion: string,
-  foto?:string,
-  actanacimiento?: string,
+  foto:string,
+  actanacimiento: string,
   curso:cursosDTO[]
 
 }
@@ -20,7 +20,7 @@ export interface CrearestudianteDTO {
   apellido: string,
   nombrepadre: string,
   nombremadre: string,
-  tutor: string,
+  nombretutor: string,
   telefono: number,
   direccion: string,
   foto?:File,
@@ -35,7 +35,7 @@ export interface CursoEstudiantedto{
 }
 
 export interface EstudiantePutgetdto{
-  estudiante: estudianteDTO[],
+  estudiante: estudianteDTO,
   cursoSeleccionado: cursosDTO[]
   cursoNoSeleccionado: cursosDTO[]
 }

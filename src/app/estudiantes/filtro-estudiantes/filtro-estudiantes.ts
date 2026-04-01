@@ -8,7 +8,7 @@ import { ListadoEstudiantes } from "../listado-estudiantes/listado-estudiantes";
 
 @Component({
   selector: 'app-filtro-estudiantes',
-  imports: [ReactiveFormsModule,  ListadoEstudiantes],
+  imports: [ReactiveFormsModule],
   templateUrl: './filtro-estudiantes.html',
 })
 export class FiltroEstudiantes implements OnInit {

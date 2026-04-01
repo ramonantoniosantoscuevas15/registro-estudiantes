@@ -11,6 +11,7 @@ import { FiltroEstudiantes } from './estudiantes/filtro-estudiantes/filtro-estud
 import { ListadoEstudiantes } from './estudiantes/listado-estudiantes/listado-estudiantes';
 import { Formularioestudiante } from './estudiantes/formularioestudiante/formularioestudiante';
 import { EditarCurso } from './cursos/editar-curso/editar-curso';
+import { Editarestudiante } from './estudiantes/editarestudiante/editarestudiante';
 
 export const routes: Routes = [
   //  {
@@ -41,6 +42,10 @@ export const routes: Routes = [
   {
     path:'curso/editar/:id',
     component:EditarCurso
+  },
+  {
+    path:'estudiante/editar/:id',
+    component:Editarestudiante
   },
   {
     path:'menu',

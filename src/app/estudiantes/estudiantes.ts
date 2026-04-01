@@ -37,7 +37,7 @@ export class Estudiantes implements OnInit {
     apellido:['',{validators:[Validators.required,Validators.minLength(4)]}],
     nombrepadre:[''],
     nombremadre:[''],
-    tutor:[''],
+    nombretutor:[''],
     telefono:[0,[Validators.required,Validators.min(3)]],
     direccion:['',{validators:[Validators.required,Validators.minLength(4)]}],
     foto:new FormControl<File  |string | null>(null),

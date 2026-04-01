@@ -1,25 +1,85 @@
 <div class="p-5 xl:ml-90">
 
 
-<app-listado [listado]="estudiantes">
+<app-listado [listado]="estudiantes" >
+<ng-container contenido>
+  <table mat-table [dataSource]="estudiantes" class="mat-elevation-z8 indice-elementos">
+    <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.id}}</td>
+      </ng-container>
 
-    <ng-container contenido>
-      <div class="estudiantes-contenedor">
-    @for (estudiante of estudiantes; track $index) {
-      <div class="estudiante-contenedor">
-        <p>Nombre:{{estudiante.nombre}}</p>
-        <p>Apellido:{{estudiante.apellido}}</p>
-        <div>
-          <a mat-flat-button type="button" class="secundary" routerLink="/estidiante/editar/55"></a>
-          <button mat-flat-button type="button" class="warn">Borrar</button>
-        </div>
+      <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.nombre}}</td>
+      </ng-container>
 
-      </div>
+      <ng-container matColumnDef="Apellido">
+        <th mat-header-cell *matHeaderCellDef>Apellido</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.apellido}}</td>
+      </ng-container>
 
-    }
+      <ng-container matColumnDef="NombrePadre">
+        <th mat-header-cell *matHeaderCellDef>Nombre del Padre</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.nombrePadre}}</td>
+      </ng-container>
 
-</div>
-  </ng-container>
+      <ng-container matColumnDef="NombreMadre">
+        <th mat-header-cell *matHeaderCellDef>Nombre de la Madre</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.nombreMadre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="NombreTutor">
+        <th mat-header-cell *matHeaderCellDef>Tutor Legar</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.nombreTutor}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Telefono">
+        <th mat-header-cell *matHeaderCellDef>Telefono</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.telefono}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Direccion">
+        <th mat-header-cell *matHeaderCellDef>Direccion</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.direccion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Foto">
+        <th mat-header-cell *matHeaderCellDef>Foto</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.foto}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="ActaNacimiento">
+        <th mat-header-cell *matHeaderCellDef>Acta de Nacimiento</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.actaNacimiento}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Cursos">
+        <th mat-header-cell *matHeaderCellDef>Curso</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.cursos | json}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let elemento">
+          <a routerLink="/estudiante/editar/{{elemento.id}}" button mat-flat-button class="primary">Editar</a>
+          <button mat-flat-button class="boton-rojo" [swal]="{title:'Confirmacion', text:'Quieres Borrar este registro',
+          showCancelButton:true}" (confirm)="borrar(elemento.id)" >Borrar</button>
+
+
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+      <tr mat-row *matRowDef="let row; columns:columnasAMostrar"></tr>
+
+
+  </table>
+  <mat-paginator showFirstLastButtons [length]="cantidadTotalRegistros" [pageIndex]="paginacion.pagina-1"
+      [pageSize]="paginacion.recordsPorPagina" [pageSizeOptions]="[5, 10, 50]" class="mat-elevation-z8"
+      (page)="actualizarPaginacion($event)"></mat-paginator>
+
+</ng-container>
+
 
 
 

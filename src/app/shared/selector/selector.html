@@ -2,7 +2,7 @@
 <div class="contenedor">
   <ul>
     @for (elemento of noselecionados; track $index) {
-      <li (click)="seleccionar(elemento,$index)">{{elemento.nombrecurso}}</li>
+      <li (click)="seleccionar(elemento,$index)">{{elemento.nombreCurso}}</li>
     }
   </ul>
   <div class="div-botones">
@@ -16,7 +16,7 @@
 
    <ul>
     @for (elemento of selecionados; track $index) {
-      <li (click)="deseleccionar(elemento,$index)">{{elemento.nombrecurso}} </li>
+      <li (click)="deseleccionar(elemento,$index)">{{elemento.nombreCurso}} </li>
     }
   </ul>
 

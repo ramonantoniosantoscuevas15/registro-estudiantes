@@ -14,32 +14,32 @@ import { Cargando } from "../../shared/cargando/cargando";
 })
 export class Formularioestudiante {
   estudianteServices = inject(EstudiantesServices)
-  cursonoseleccionado:SelectorDTO[]=[]
-  cursoseleccionado:SelectorDTO[]=[]
+  cursonoseleccionado: SelectorDTO[] = []
+  cursoseleccionado: SelectorDTO[] = []
   router = inject(Router)
 
   constructor() {
     this.estudianteServices.crearget().subscribe(modelo => {
-     this.cursonoseleccionado = modelo.cursos.map(curso => {
-        return <SelectorDTO>{ id: curso.id, nombrecurso: curso.nombreCurso }
+      this.cursonoseleccionado = modelo.cursos.map(curso => {
+        return <SelectorDTO>{ id: curso.id, nombreCurso: curso.nombreCurso }
       })
     })
   }
 
-   guardarestudiante(estudiante: CrearestudianteDTO){
+  guardarestudiante(estudiante: CrearestudianteDTO) {
 
 
-     this.estudianteServices.crear(estudiante).subscribe({
-      next:estudiante=>{
+    this.estudianteServices.crear(estudiante).subscribe({
+      next: estudiante => {
         Swal.fire({
-          title:"Estudiante Agregado Correctamente",
-          icon:"success",
-          draggable:true
+          title: "Estudiante Agregado Correctamente",
+          icon: "success",
+          draggable: true
         })
       }
-     })
-     this.router.navigate(['/listadoestudiantes'])
+    })
+    this.router.navigate(['/listadoestudiantes'])
 
 
-   }
- }
+  }
+}
