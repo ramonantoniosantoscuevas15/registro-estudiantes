@@ -35,7 +35,7 @@ export class CursoServices {
 
   }
 
-  public obtenercursos() {
+  public obtenercursos():Observable<cursosDTO[]> {
     return this.http.get<cursosDTO[]>(`${this.urlbase}/todos`)
   }
   public borrar(id: number) {

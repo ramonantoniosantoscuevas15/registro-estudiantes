@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environments.developer';
 import { CrearestudianteDTO, CursoEstudiantedto, estudianteDTO, EstudiantePutgetdto } from './estidiantesDTO';
@@ -67,6 +67,12 @@ export class EstudiantesServices {
   }
    public borrar(id: number) {
     return this.http.delete(`${this.urlbase}/${id}`)
+  }
+
+  public buscar(valores:any):Observable<HttpResponse<estudianteDTO[]>>{
+    const params = new HttpParams({fromObject:valores})
+    return this.http.get<estudianteDTO[]>(`${this.urlbase}/buscar`,{params,observe:'response'})
+
   }
 
 }

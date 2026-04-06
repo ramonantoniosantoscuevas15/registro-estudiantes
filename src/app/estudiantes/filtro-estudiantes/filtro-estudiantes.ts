@@ -5,78 +5,90 @@ import { ActivatedRoute } from '@angular/router';
 import { FiltroEstudiante } from './filtro-estudiante';
 import { Listado } from "../../shared/listado/listado";
 import { ListadoEstudiantes } from "../listado-estudiantes/listado-estudiantes";
+import { estudianteDTO } from '../estidiantesDTO';
+import { cursosDTO } from '../../cursos/cursosDTO';
+import { EstudiantesServices } from '../estudiantesServices';
+import { CursoServices } from '../../cursos/cursoServices';
+import { paginaciondto } from '../../../models/paginaciondto';
+import { PageEvent, MatPaginator } from '@angular/material/paginator';
+import { Lista } from "../../shared/lista/lista";
 
 @Component({
   selector: 'app-filtro-estudiantes',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, Lista, MatPaginator],
   templateUrl: './filtro-estudiantes.html',
 })
 export class FiltroEstudiantes implements OnInit {
+  estudianteservices = inject(EstudiantesServices)
+  cursosservices = inject(CursoServices)
+  paginacion: paginaciondto = { pagina: 1, recordsPorPagina: 5 }
+  cantidadTotalRegistros!: number
   ngOnInit(): void {
-    this.leerValoresUrl()
-    this.buscarEstutiante(this.form.value as FiltroEstudiante)
-    this.form.valueChanges.subscribe(valores =>{
-      this.estudiantes = this.estudiantesOriginal
-      this.buscarEstutiante(valores as FiltroEstudiante)
-      this.escribirParametrosBusquedaEnUrl(valores as FiltroEstudiante)
+    this.cursosservices.obtenercursos().subscribe(curso => {
+      this.cursos = curso
+      this.leerValoresUrl()
+      this.buscarEstutiante(this.form.value as FiltroEstudiante)
+      this.form.valueChanges.subscribe(valores => {
+        this.buscarEstutiante(valores as FiltroEstudiante)
+        this.escribirParametrosBusquedaEnUrl(valores as FiltroEstudiante)
+      })
+
     })
+
   }
-  escribirParametrosBusquedaEnUrl(valores:FiltroEstudiante){
-    let queryString=[]
-    if(valores.nombre){
-      queryString.push(`nombre=${encodeURI(valores.nombre) }`)
+  escribirParametrosBusquedaEnUrl(valores: FiltroEstudiante) {
+    let queryString = []
+    if (valores.nombre) {
+      queryString.push(`nombre=${encodeURI(valores.nombre)}`)
     }
-    if(valores.cursoid !==0){
+    if (valores.cursoid !== 0) {
       queryString.push(`cursoid=${valores.cursoid}`)
 
     }
-    this.location.replaceState('estudiantes/filtro',queryString.join('&'))
+    this.location.replaceState('estudiantes/filtro', queryString.join('&'))
   }
-  limpiar(){
-    this.form.patchValue({nombre:'',cursoid:0})
+  limpiar() {
+    this.form.patchValue({ nombre: '', cursoid: 0 })
   }
-  buscarEstutiante(valores:FiltroEstudiante){
-    if(valores.nombre){
-      this.estudiantes = this.estudiantes.filter(estudiante => estudiante.nombre.indexOf(valores.nombre)!==-1)
-    }
-    if(valores.cursoid !==0){
-      this.estudiantes = this.estudiantes.filter(estudiante => estudiante.cursos.indexOf(valores.cursoid)!==-1)
-
-    }
+  buscarEstutiante(valores: FiltroEstudiante) {
+    valores.pagina = this.paginacion.pagina
+    valores.recordsPorPagina = this.paginacion.recordsPorPagina
+    this.estudianteservices.buscar(valores).subscribe(respuesta => {
+      this.estudiantes = respuesta.body as estudianteDTO[]
+      const cabecera = respuesta.headers.get('cantidadTotalRegistros') as string
+      this.cantidadTotalRegistros = parseInt(cabecera, 10)
+    })
   }
-  leerValoresUrl(){
-    this.activatedRoute.queryParams.subscribe((params:any)=>{
-      var objeto: any={}
-      if(params.nombre){
+  leerValoresUrl() {
+    this.activatedRoute.queryParams.subscribe((params: any) => {
+      var objeto: any = {}
+      if (params.nombre) {
         objeto.nombre = params.nombre
       }
-      if(params.cursoid){
-        objeto.cursoid= Number(params.cursoid)
+      if (params.cursoid) {
+        objeto.cursoid = Number(params.cursoid)
 
       }
       this.form.patchValue(objeto)
     })
+  }
+  actualizarPaginacion(datos: PageEvent) {
+    this.paginacion = { pagina: datos.pageIndex + 1, recordsPorPagina: datos.pageSize }
+
+
   }
   private fb = inject(FormBuilder)
   private location = inject(Location)
   private activatedRoute = inject(ActivatedRoute)
 
   form = this.fb.group({
-    nombre:'',
-    cursoid:0
+    nombre: '',
+    cursoid: 0
 
   })
 
-  cursos=[
-    {id:1,curso:'primero'},
-    {id:2,curso:'segundo'},
-    {id:3,curso:'tercero'}
-  ]
+  cursos!: cursosDTO[]
 
-  estudiantesOriginal = [
-    {nombre:"ramon", apellido:"santos", cursos:[1]},
-    {nombre:"manuel",apellido:"Zapata",cursos:[2,3]},
-    {nombre:"alejandra",apellido:"martinez",cursos:[1,2,3]}
-  ]
-  estudiantes =this.estudiantesOriginal
+  estudiantes!: estudianteDTO[]
+
 }

@@ -20,7 +20,7 @@
             <select [formControl]="form.controls.cursoid" class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-white outline-1 -outline-offset-1 outline-white/10 *:bg-gray-800 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6">
               <option [value]="0">Seleccione un Curso</option>
               @for (curso of cursos; track $index) {
-                <option [value]="curso.id">{{curso.curso}}</option>
+                <option [value]="curso.id">{{curso.nombreCurso}}</option>
               }
 
             </select>
@@ -31,6 +31,11 @@
         </div>
 
 </form>
+<app-lista [estudiantes]="estudiantes"></app-lista>
+<mat-paginator showFirstLastButtons [length]="cantidadTotalRegistros" [pageIndex]="paginacion.pagina-1"
+[pageSize]="paginacion.recordsPorPagina" [pageSizeOptions]="[5,10,15]" class="mat-elevation-z8"
+(page)="actualizarPaginacion($event)">
 
+</mat-paginator>
 
 </div>
