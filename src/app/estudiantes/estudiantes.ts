@@ -10,12 +10,13 @@ import { InputImg2 } from "../shared/input-img2/input-img2";
 import { CrearestudianteDTO, estudianteDTO,  } from './estidiantesDTO';
 import { SelectorDTO } from '../shared/selector/selectormodelo';
 import { Selector } from "../shared/selector/selector";
+import { Login } from "../login/login";
 
 
 
 @Component({
   selector: 'app-estudiantes',
-  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatSelectModule, InputImg, InputImg2, Selector],
+  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatSelectModule, InputImg, InputImg2, Selector, Login],
   templateUrl: './estudiantes.html',
 
 })

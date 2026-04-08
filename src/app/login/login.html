@@ -1,4 +1,10 @@
-<form autocomplete="off" [formGroup]="form">
+
+  @if(estaautorizado()){
+    <ng-content select="[Autorizado]"></ng-content>
+  }@else {
+    <ng-content select="[NoAutorizado]"></ng-content>
+  }
+<!-- <form autocomplete="off" [formGroup]="form">
   <div class="hero bg-base-200 min-h-screen">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left">
@@ -24,6 +30,7 @@
   </div>
 </div>
 
-</form>
+</form> -->
+
 
 

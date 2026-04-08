@@ -1,7 +1,7 @@
 <div class="p-5 xl:ml-90">
-
-
-  <form (submit)="guardarestudiante()" [formGroup]="form">
+  <app-login rol="Admin">
+    <ng-container Autorizado>
+      <form (submit)="guardarestudiante()" [formGroup]="form">
 
 
     <div class="space-y-12">
@@ -151,6 +151,19 @@
 
 
   </form>
+
+    </ng-container>
+    <ng-container NoAutorizado>
+      <div>
+    no estas autorizado
+  </div>
+    </ng-container>
+  </app-login>
+
+
+
+
+
 
 
 </div>

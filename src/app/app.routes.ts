@@ -48,6 +48,10 @@ export const routes: Routes = [
     component:Editarestudiante
   },
   {
+    path:'Login',
+    component:Login
+  },
+  {
     path:'menu',
     component:Menu
   },
