@@ -1,5 +1,5 @@
 <!-- component -->
-<div>
+<!-- <div>
   <aside
     class="bg-linear-to-br from-gray-800 to-gray-900 -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
     <div class="relative border-b border-white/20">
@@ -130,17 +130,24 @@
       </ul>
     </div>
   </aside>
-</div>
+</div> -->
 
-<!-- <mat-toolbar>
+ <mat-toolbar>
    <span>
 
   </span>
-  <div>
+
+    <app-login  rol="Admin">
+      <ng-container Autorizado >
+    <a mat-button routerLink="">Formulario Estudiantes</a>
     <a mat-button routerLink="cursos">Cursos</a>
     <a mat-button routerLink="indice-categoria">Listado categorias</a>
     <a mat-button routerLink="listadoestudiantes">Listado Personas</a>
     <a mat-button routerLink="estudiantes/filtro">Filtrar Personas</a>
-    <a mat-button routerLink="bucarpersona">Buscar Persona</a>
-  </div>
-</mat-toolbar> -->
+    </ng-container>
+    </app-login>
+
+    <a mat-button routerLink="Login">Registrarse</a>
+
+
+</mat-toolbar>

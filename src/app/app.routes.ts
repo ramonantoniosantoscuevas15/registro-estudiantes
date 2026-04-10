@@ -12,49 +12,51 @@ import { ListadoEstudiantes } from './estudiantes/listado-estudiantes/listado-es
 import { Formularioestudiante } from './estudiantes/formularioestudiante/formularioestudiante';
 import { EditarCurso } from './cursos/editar-curso/editar-curso';
 import { Editarestudiante } from './estudiantes/editarestudiante/editarestudiante';
+import { esAdminGuard } from './shared/guard/es-admin-guard';
 
 export const routes: Routes = [
-  //  {
-  // path:'',
-  //   component:Login,
-  //  },
+  
   {
     path:'',
-    component:Formularioestudiante
+    component:Formularioestudiante,
+    canActivate:[esAdminGuard]
   },
 
   {
     path:'estudiantes/filtro',
-    component:FiltroEstudiantes
+    component:FiltroEstudiantes,
+    canActivate:[esAdminGuard]
   },
   {
     path:'listadoestudiantes',
-    component:ListadoEstudiantes
+    component:ListadoEstudiantes,
+    canActivate:[esAdminGuard]
   },
   {
     path:'cursos',
-    component:Formulariocursos
+    component:Formulariocursos,
+    canActivate:[esAdminGuard]
   },
   {
     path:'listadocursos',
-    component:ListadoCursos
+    component:ListadoCursos,
+    canActivate:[esAdminGuard]
   },
   {
     path:'curso/editar/:id',
-    component:EditarCurso
+    component:EditarCurso,
+    canActivate:[esAdminGuard]
   },
   {
     path:'estudiante/editar/:id',
-    component:Editarestudiante
+    component:Editarestudiante,
+    canActivate:[esAdminGuard]
   },
   {
     path:'Login',
     component:Login
   },
-  {
-    path:'menu',
-    component:Menu
-  },
+
   {
     path:'**',
     redirectTo:''

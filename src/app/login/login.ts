@@ -31,7 +31,7 @@ export class Login {
  private fb = inject(FormBuilder)
 
  form = this.fb.group({
-  correo:['',[Validators.required,Validators.pattern(this.formutilidades.emailPattern)]],
-  password:['',{validators:[Validators.required,Validators.minLength(4)]}]
+  Email:['',[Validators.required,Validators.pattern(this.formutilidades.emailPattern)]],
+  Password:['',{validators:[Validators.required,Validators.minLength(4)]}]
  })
 }
