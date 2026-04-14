@@ -11,12 +11,13 @@ import { CrearestudianteDTO, estudianteDTO,  } from './estidiantesDTO';
 import { SelectorDTO } from '../shared/selector/selectormodelo';
 import { Selector } from "../shared/selector/selector";
 import { Login } from "../login/login";
+import { Autorizado } from "../autorizado/autorizado";
 
 
 
 @Component({
   selector: 'app-estudiantes',
-  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatSelectModule, InputImg, InputImg2, Selector, Login],
+  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatSelectModule, InputImg, InputImg2, Selector,  Autorizado],
   templateUrl: './estudiantes.html',
 
 })

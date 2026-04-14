@@ -1,41 +1,28 @@
-
-  @if(estaautorizado()){
-    <ng-content select="[Autorizado]"></ng-content>
-
-  }@else {
-    <ng-content select="[NoAutorizado]">
-
-    </ng-content>
-
-  }
-
-  <!-- <form autocomplete="off" [formGroup]="form">
+<form (submit)="guardarlogin()" autocomplete="on" [formGroup]="form">
   <div class="hero bg-base-200 min-h-screen">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div class="text-center lg:text-left">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="text-center lg:text-left">
 
-    </div>
-    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <div class="card-body">
-        <fieldset class="fieldset">
-          <label class="label">Usuario</label>
-          <input type="text" class="input" [formControl]="form.controls.correo"  placeholder="Correo" />
-          @if(formutilidades.isvalidField(form,'correo')){
-            <mat-error>{{formutilidades.getFieldError(form,"correo")}}</mat-error>
-          }
-          <label class="label">Contraseña</label>
-          <input type="password" class="input ng-untouched ng-pristine ng-valid" [formControl]="form.controls.password" placeholder="Contraseña" />
-           @if(formutilidades.isvalidField(form,'password')){
-            <mat-error> {{formutilidades.getFieldError(form,"password")}}</mat-error>
-          }
-          <button routerLink="/estudiantes" class="btn btn-neutral mt-4" [disabled]="form.invalid">Ingresar</button>
-        </fieldset>
+      </div>
+      <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div class="card-body">
+          <fieldset class="fieldset">
+            <label class="label">Usuario</label>
+            <input type="text" class="input" [formControl]="form.controls.Email" placeholder="Correo" />
+            @if(formutilidades.isvalidField(form,'Email')){
+            <mat-error>{{formutilidades.getFieldError(form,"Email")}}</mat-error>
+            }
+            <label class="label">Contraseña</label>
+            <input type="password" class="input ng-untouched ng-pristine ng-valid"
+              [formControl]="form.controls.Password" placeholder="Contraseña" />
+            @if(formutilidades.isvalidField(form,'Password')){
+            <mat-error> {{formutilidades.getFieldError(form,"Password")}}</mat-error>
+            }
+            <button type="submit" class="btn btn-neutral mt-4" [disabled]="form.invalid">Ingresar</button>
+          </fieldset>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-</form> -->
-
-
-
+</form>

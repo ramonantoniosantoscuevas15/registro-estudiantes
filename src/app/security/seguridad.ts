@@ -58,7 +58,7 @@ export class Seguridad {
     localStorage.removeItem(this.llaveExpiracion)
   }
   obtenerRol():string{
-    return''
+    return'Admin'
   }
 
   noestaslogueado():boolean{
