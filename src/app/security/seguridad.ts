@@ -65,4 +65,13 @@ export class Seguridad {
     return false
   }
 
+  obtenercampo(campo:string):string{
+    const token = localStorage.getItem(this.llaveToken)
+    if(!token){
+      return ''
+    }
+    var datatoken = JSON.parse(atob(token.split('.')[1]))
+    return datatoken[campo]
+  }
+
 }

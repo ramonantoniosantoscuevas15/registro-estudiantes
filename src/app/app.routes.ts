@@ -14,6 +14,8 @@ import { EditarCurso } from './cursos/editar-curso/editar-curso';
 import { Editarestudiante } from './estudiantes/editarestudiante/editarestudiante';
 import { esAdminGuard } from './shared/guard/es-admin-guard';
 import { FormularioLogin } from './login/formulario-login/formulario-login';
+import { Registro } from './registro/registro';
+import { FormularioRegistro } from './registro/formulario-registro/formulario-registro';
 
 export const routes: Routes = [
 
@@ -56,6 +58,10 @@ export const routes: Routes = [
   {
     path:'Login',
     component:FormularioLogin
+  },
+  {
+    path:'registro',
+    component:FormularioRegistro
   },
 
   {

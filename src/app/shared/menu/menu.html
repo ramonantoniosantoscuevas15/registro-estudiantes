@@ -83,6 +83,11 @@
 
 
         </div>
+        <div>
+          Hola {{seguridad.obtenercampo('email')}}
+          <a matButton (click)="seguridad.logout()">Logout</a>
+        </div>
+
 
 
       </ng-container>
